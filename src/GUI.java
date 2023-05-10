@@ -1,8 +1,5 @@
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.util.Objects;
 
 public class GUI {
@@ -43,34 +40,44 @@ public class GUI {
         });
 
         GridBagConstraints gbc = new GridBagConstraints();
+        gbc.anchor = GridBagConstraints.LINE_START;
         gbc.gridx=0;
         gbc.gridy=0;
         pane.add(label1,gbc);
         pane.add(Box.createHorizontalStrut(5)); // Fixed width invisible separator.
-        gbc.gridx=1;
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx=2;
         gbc.gridy=0;
         pane.add(shapes,gbc);
         pane.add(Box.createHorizontalStrut(5)); // Fixed width invisible separator.
+        gbc.anchor = GridBagConstraints.LINE_START;
+        gbc.fill = 0;
         gbc.gridx=0;
         gbc.gridy=1;
         pane.add(valueLabel,gbc);
         pane.add(Box.createHorizontalStrut(5)); // Fixed width invisible separator.
-        gbc.gridx=1;
+        gbc.anchor = GridBagConstraints.LINE_END;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx=2;
         gbc.gridy=1;
         pane.add(tf,gbc);
         pane.add(Box.createHorizontalStrut(5)); // Fixed width invisible separator.
+        gbc.anchor = GridBagConstraints.CENTER;
         gbc.gridx=0;
+        gbc.gridwidth= 3;
         gbc.gridy=2;
+        gbc.insets = new Insets(20,0,0,0);
         pane.add(Box.createHorizontalStrut(5)); // Fixed width invisible separator.
         pane.add(button,gbc);
 
-
         frame.add(pane);
 
+        frame.setTitle("Area of Square and Circle Calculator");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
         frame.setPreferredSize(new Dimension(400,150));
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
     }
